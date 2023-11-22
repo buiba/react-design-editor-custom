@@ -767,10 +767,10 @@ class Handler implements HandlerOptions {
 		this.canvas.add(createdObj);
 		this.objects = this.getObjects();
 		if (!editable && !(obj.superType === 'element')) {
-			createdObj.on('mousedown', this.eventHandler.object.mousedown);
+			createdObj.on('mousedown', this.eventHandler.object.mousedown as any);
 		}
 		if (createdObj.dblclick) {
-			createdObj.on('mousedblclick', this.eventHandler.object.mousedblclick);
+			createdObj.on('mousedblclick', this.eventHandler.object.mousedblclick as any);
 		}
 		if (this.objects.some(object => object.type === 'gif')) {
 			this.startRequestAnimFrame();
@@ -1014,7 +1014,7 @@ class Handler implements HandlerOptions {
 				this.canvas.add(clonedObj);
 				this.objects = this.getObjects();
 				if (clonedObj.dblclick) {
-					clonedObj.on('mousedblclick', this.eventHandler.object.mousedblclick);
+					clonedObj.on('mousedblclick', this.eventHandler.object.mousedblclick as any);
 				}
 				if (onAdd) {
 					onAdd(clonedObj);
@@ -1055,7 +1055,7 @@ class Handler implements HandlerOptions {
 					onAdd(cloned);
 				}
 				if (cloned.dblclick) {
-					cloned.on('mousedblclick', this.eventHandler.object.mousedblclick);
+					cloned.on('mousedblclick', this.eventHandler.object.mousedblclick as any);
 				}
 				this.canvas.setActiveObject(cloned);
 				this.portHandler.create(cloned as NodeObject);

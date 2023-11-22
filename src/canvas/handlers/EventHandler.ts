@@ -93,7 +93,7 @@ class EventHandler {
 				'mouse:wheel': this.mousewheel,
 			});
 			this.handler.getObjects().forEach(object => {
-				object.off('mousedown', this.handler.eventHandler.object.mousedown);
+				object.off('mousedown', this.handler.eventHandler.object.mousedown as any);
 				if (object.anime) {
 					anime.remove(object);
 				}
@@ -170,7 +170,7 @@ class EventHandler {
 	public moving = (opt: FabricEvent) => {
 		const { target } = opt as any;
 		if (this.handler.interactionMode === 'crop') {
-			this.handler.cropHandler.moving(opt);
+			this.handler.cropHandler.moving(opt as any);
 		} else {
 			if (this.handler.editable && this.handler.guidelineOption.enabled) {
 				this.handler.guidelineHandler.movingGuidelines(target);
@@ -227,7 +227,7 @@ class EventHandler {
 	public scaling = (opt: FabricEvent) => {
 		const { target } = opt as any;
 		if (this.handler.interactionMode === 'crop') {
-			this.handler.cropHandler.resize(opt);
+			this.handler.cropHandler.resize(opt as any);
 		}
 		// TODO...this.handler.guidelineHandler.scalingGuidelines(target);
 		if (target.superType === 'element') {

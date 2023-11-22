@@ -14,6 +14,7 @@ module.exports = {
 	mode: 'production',
 	entry: {
 		[pkg.name]: ['core-js/stable', path.resolve(__dirname, 'src/canvas/index.tsx')],
+		[pkg.name]: ['core-js/stable', path.resolve(__dirname, 'src/editors/index.tsx')],
 		[`${pkg.name}.min`]: ['core-js/stable', path.resolve(__dirname, 'src/canvas/index.tsx')],
 	},
 	externals: {
